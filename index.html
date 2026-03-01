@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping App UI</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Top Menu -->
+    <div class="top-menu">
+        <div class="menu-item">
+            <img class="menu-img" src="images/ficon.png" alt="">
+            <span>Flipkart</span>
+
+        </div>
+        <div class="menu-item">
+            <img class="menu-img" src="images/fplane.png" alt="">
+            <span>Travel</span>
+
+        </div>
+        <div class="menu-item">
+            <img class="menu-img" src="images/fgrocery.png" alt="">
+            <span>Grocery</span>
+
+        </div>
+    </div>
+
+    <!-- Location -->
+    <div class="location">
+        🏠 HOME Kaurihar Chawek Professor Colony Raxaul Near St. Jose...
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+        <input type="text" placeholder="🔍 Search for Products">
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <span class="active">For You</span>
+        <span>Fashion</span>
+        <span>Mobiles</span>
+        <span>Beauty</span>
+        <span>Electronics</span>
+        <span>Home</span>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <!-- <div>
+            <h2>Pulse 2 Launch Tomorrow, 12 PM</h2>
+            <p>Designed for privacy</p>
+        </div> -->
+        <img src="images/fbanner.webp" alt="Banner Image">
+    </div>
+
+    <!-- Products -->
+    <div class="products">
+        <div class="card">
+            <img src="images/fwatch.webp" alt="">
+            <h4>Jeans Collection</h4>
+            <p>Min. 80% Off</p>
+        </div>
+
+        <div class="card">
+            <img src="images/fwatch.webp" alt="">
+            <h4>Gaming TWS</h4>
+            <p>₹999</p>
+        </div>
+
+        <div class="card">
+            <img src="images/fwatch.webp" alt="">
+            <h4>Crocs</h4>
+            <p>Min. 40% Off</p>
+        </div>
+    </div>
+    <!-- Product Section -->
+    <div class="product-section">
+        <div class="product-card">
+            <div class="img-box">
+                <img src="images/iphone17.jpeg" alt="">
+                <div class="rating">4.3 ★ <span>(5,086)</span></div>
+            </div>
+            <h4>Fastrack All Nighter Watch</h4>
+            <div class="price">
+                <span class="old">5,195</span>
+                <span class="new">₹3,271</span>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="img-box">
+                <img src="images/iphone-15.webp" alt="">
+                <div class="rating">4.5 ★ <span>(7,890)</span></div>
+            </div>
+            <h4>Google Pixel 9A (Obsidian)</h4>
+            <div class="price">
+                <span class="old">49,999</span>
+                <span class="new">₹39,999</span>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="img-box">
+                <img src="https://via.placeholder.com/300x350" alt="">
+                <div class="rating">4.1 ★ <span>(58,710)</span></div>
+            </div>
+            <h4>Oumad Printed Kurta Palazzo</h4>
+            <div class="price">
+                <span class="old">2,499</span>
+                <span class="new">₹630</span>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="img-box">
+                <img src="https://via.placeholder.com/300x350" alt="">
+                <div class="rating">4.4 ★ <span>(11,452)</span></div>
+            </div>
+            <h4>Titan Karishma Blue Dial</h4>
+            <div class="price">
+                <span class="old">3,795</span>
+                <span class="new">₹2,731</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <button id="payBtn" class="btn">Pay Now</button>
+
+    <script>
+        function handlePayment() {
+            const upiId = "6202760547@axl";        // verify this is valid!
+            const name = "AyatStore";
+            const amount = "500.00";              // use a decimal string
+            const note = "Test purchase";        // transaction note
+            const ref = "TXN" + Date.now();     // unique reference
+
+            const params = new URLSearchParams({
+                pa: upiId,
+                pn: name,
+                am: amount,
+                cu: "INR",
+                tn: note,
+                tr: ref
+            });
+
+            const url = `upi://pay?${params.toString()}`;
+            console.log("UPI URI:", url);         // check the output in console
+            window.location.href = url;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('payBtn');
+            if (btn) btn.addEventListener('click', handlePayment);
+        });
+    </script>
+
+</body>
+
+</html>
